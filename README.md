@@ -1,5 +1,5 @@
-# RASflow: RNA-Seq Analysis Snakemake Workflow
-RNA-Seq analysis workflow using Snakemake
+# RASflow-mod: RNA-Seq Analysis Snakemake Workflow
+RNA-Seq analysis workflow using Snakemake cluster
 ## Workflow
 <img src="https://github.com/zhxiaokang/RNA-Seq-analysis/blob/master/workflow/workflow_chart.jpg" width="450">
 
@@ -7,7 +7,7 @@ RNA-Seq analysis workflow using Snakemake
 ### Installation
 Clone the repository:
 
-`git clone https://github.com/zhxiaokang/RASflow.git`
+`git clone https://github.com/yashondhi/RASFlow-mod.git`
 
 Create the environment:
 
@@ -23,7 +23,7 @@ Modify the metafile describing your data `configs/metadata.tsv`.
 Customize the workflow based on your need in `configs/config_main.yaml`.
 
 ### Run RASflow
-`python main.py`
+`python main_cl.py`
 
 ## Tutorial
 A more detailed tutorial of how to use this workflow can be found here: [Tutorial](https://github.com/zhxiaokang/RASflow/blob/master/Tutorial.pdf)
@@ -33,4 +33,4 @@ RASflow has been evaluated on 4 datasets including two model organisms (human an
 
 ## References
 Zhang, X., Jonassen, I. RASflow: an RNA-Seq analysis workflow with Snakemake. BMC Bioinformatics 21, 110 (2020). https://doi.org/10.1186/s12859-020-3433-x
-# RASFlow-mod
+
