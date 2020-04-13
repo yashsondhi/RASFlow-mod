@@ -52,7 +52,6 @@ if end == "pair":
     rule alignment:
         input:
             indexes = directory(intermediate_path + "/indexes"),
-            splicesites = intermediate_path + "/splicesites.txt",
             forward = intermediate_path + "/reads/{sample}_forward.fastq.gz",
             reverse = intermediate_path + "/reads/{sample}_reverse.fastq.gz"
         output:
@@ -63,13 +62,12 @@ if end == "pair":
         benchmark:
             intermediate_path + "/benchmarks/{sample}.bwa.benchmark.txt"
         run:
-            shell("bwa mem -t {config[NCORE]} -R "@RG\tID:foo\tSM:bar\tPL:Illumina\tPU:unit1\tLB:lib1" {params.index} {input.forward} {input.reverse} > {output.sam}")
+            shell("bwa mem -t {config[NCORE]} {params.index} {input.forward} {input.reverse} > {output.sam}")
             shell("samtools view -@ {config[NCORE]} -b -S {output.sam} > {output.bam}")
 else:
     rule alignment:
         input:
             indexes = directory(intermediate_path + "/indexes"),
-            splicesites = intermediate_path + "/splicesites.txt",
             forward = intermediate_path + "/reads/{sample}.fastq.gz"
         output:
             sam = temp(intermediate_path + "/samFile/{sample}.sam"),
@@ -79,7 +77,7 @@ else:
         benchmark:
             intermediate_path + "/benchmarks/{sample}.bwa.benchmark.txt"
         run:
-            shell("bwa mem -t {config[NCORE]} -R "@RG\tID:foo\tSM:bar\tPL:Illumina\tPU:unit1\tLB:lib1" {params.index} {input.forward} {input.reverse} > {output.sam}")
+            shell("bwa mem -t {config[NCORE]} {params.index} {input.forward} {input.reverse} > {output.sam}")
             shell("samtools view -@ {config[NCORE]} -b -S {output.sam} > {output.bam}")
 
 rule sortBAM:

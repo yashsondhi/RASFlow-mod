@@ -8,4 +8,4 @@
 #SBATCH --output=serial_test_%j.log   # Standard output and error log
 #SBATCH --qos=kawahara-b
 
-python main_cl.py --trim
+python main_cl.py --reference genome

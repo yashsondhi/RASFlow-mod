@@ -68,7 +68,7 @@ ALIGNER: bwa
 COUNTER: featureCounts  # default is "featureCounts", or you may want to use "htseq-count"
 
 ## alignment quality control
-alignmentQC: no  # "yes" or "no" to specify whether you want to do alignment QC
+alignmentQC: yes  # "yes" or "no" to specify whether you want to do alignment QC
 
 # ================== Configuration for DEA ==================
 
