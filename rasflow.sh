@@ -8,6 +8,4 @@
 #SBATCH --output=serial_test_%j.log   # Standard output and error log
 #SBATCH --qos=kawahara-b
 
-module load conda
-source activate rasflow
-python main_cl.py --genome --dea --visualize --project "unit-test"
+python main_cl.py --trim
